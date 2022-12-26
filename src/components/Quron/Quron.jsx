@@ -2,7 +2,6 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Btn from '../Btn/Btn'
-import Loading from '../Loading/Loading'
 import Surahs from '../Surahs/Surahs'
 import style from './Quron.module.scss'
 
@@ -24,8 +23,6 @@ const Quron = () => {
     getData()
   }, [])
 
-  // console.log(data);
-
   return (
     <div className={style.box}>
       <Btn />
@@ -33,7 +30,7 @@ const Quron = () => {
         <div className={style.box2}>
           <p>English</p><p>Arabian</p>
         </div>
-        { data.map((item) => {
+        {data.map((item) => {
             return (
               <Link key={item.number} to={`/${item.number}`}>
                 <li key={item.number}>
