@@ -33,8 +33,7 @@ const Quron = () => {
         <div className={style.box2}>
           <p>English</p><p>Arabian</p>
         </div>
-        {
-          load ? <Loading /> : data.map((item) => {
+        { data.map((item) => {
             return (
               <Link key={item.number} to={`/${item.number}`}>
                 <li key={item.number}>
