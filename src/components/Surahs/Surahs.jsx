@@ -11,7 +11,7 @@ const Surahs = () => {
   const { id } = useParams()
 
   const [ones, setOnes] = useState([])
-  const [load, setload] = useState(true)
+  const [load, setload] = useState(false)
 
   useEffect(() => {
     const getData = async () => {
