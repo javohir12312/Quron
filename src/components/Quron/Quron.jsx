@@ -12,7 +12,7 @@ const Quron = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get("http://api.alquran.cloud/v1/surah")
+        const res = await axios.get("https://api.alquran.cloud/v1/surah")
 
         setData(res.data.data)
       } catch (error) {
