@@ -1,0 +1,150 @@
+.hello__box {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: white;
+    font-size: 90px;
+    background-image: url('../../../public/assets/images/bg-img1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation: start 4s infinite;
+
+    h2 {
+        color: peru;
+        margin: 0;
+    }
+
+    p {
+        margin: 0;
+        font-weight: 700;
+        font-size: 100px;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color: lightblue;
+    }
+
+    @media screen and (max-width: 900px) {
+        font-size: 40px;
+
+        p {
+            font-size: 30px;
+        }
+    }
+}
+
+@keyframes start {
+    100% {
+        opacity: 0;
+      }
+    
+      50% {
+        opacity: 1;
+        display: none;
+      }
+      0%{
+        opacity: 2;
+      }
+      
+}
+
+
+@keyframes start2 {
+    100% {
+        background: rgba(144, 238, 144, 0.3);
+      }
+    
+      50% {
+        background: rgba(144, 238, 144, 0.6);
+        display: none;
+      }
+      0%{
+        background: rgba(144, 238, 144, 0.9);
+      }
+      
+}
+
+.bg_def{
+    width: 100%;
+    height: 100vh;
+    background-image: url('../../../public/assets/images/15365516_5540822.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.default_bg{
+    padding: 0 50px;
+    display: flex;
+    height: 70vh;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+    @media screen and (max-width: 550px) {
+        padding: 0;
+        height: 50vh;
+    }
+
+    img{
+        width: 25%;
+    }
+
+    @media screen and (max-width: 800px) {
+        img{
+            width: 35%;
+        }
+    }
+
+    @media screen and (max-width: 400px) {
+        img{
+            width: 45%;
+        }
+    }
+    
+}
+
+.box{
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    @media screen and (max-width: 450px) {
+        flex-direction: column;
+        gap: 5px;
+    }
+    a{
+        padding: 15px 70px;
+        text-decoration: none;
+        color: darkslateblue;
+        font-weight: 700;
+        font-size: 35px;
+        border-radius: 9px;
+        animation: start2 2s infinite;
+        text-align: center;
+
+        @media screen and (max-width: 1300px) {
+            padding: 10px;
+            font-size: 25px;
+        }
+
+        @media screen and (max-width: 600px) {
+            padding: 10px;
+            font-size: 18px;
+        }
+
+        @media screen and (max-width: 450px) {
+            width: 150px;
+            font-size: 15px;
+        }
+
+        
+
+    }
+}
