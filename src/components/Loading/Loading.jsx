@@ -4,7 +4,7 @@ import React from 'react';
 
 function Loading() {
     return (
-        <Box sx={{ width: 250 }}>
+        <Box sx={{ width: 350 }}>
             <Skeleton />
             <Skeleton animation="wave" />
             <Skeleton animation="wave" />
