@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import ReactAudioPlayer from 'react-audio-player';
 import { useParams } from 'react-router-dom';
 import Loader from '../Loader/Loader';
+import Loading from '../Loading/Loading';
 import style from "./Surahs.module.scss"
 
 const Surahs = () => {
@@ -11,10 +12,6 @@ const Surahs = () => {
 
   const [ones, setOnes] = useState([])
   const [load, setload] = useState(true)
-
-  useEffect(() => {
-    setload(true)
-  }, [id])
 
   useEffect(() => {
     const getData = async () => {
@@ -31,7 +28,9 @@ const Surahs = () => {
     getData()
   }, [id])
 
-
+  useEffect(() => {
+    setload(true)
+  }, [id])
 
 
   return (
