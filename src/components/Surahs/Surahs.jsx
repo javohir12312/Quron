@@ -3,15 +3,15 @@ import React, { useEffect, useState } from 'react'
 import ReactAudioPlayer from 'react-audio-player';
 import { useParams } from 'react-router-dom';
 import Loader from '../Loader/Loader';
-import Loading from '../Loading/Loading';
 import style from "./Surahs.module.scss"
 
 const Surahs = () => {
 
   const { id } = useParams()
 
+
   const [ones, setOnes] = useState([])
-  const [load, setload] = useState(false)
+  const [load, setload] = useState(true)
 
   useEffect(() => {
     const getData = async () => {
