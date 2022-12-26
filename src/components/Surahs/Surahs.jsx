@@ -14,6 +14,10 @@ const Surahs = () => {
   const [load, setload] = useState(true)
 
   useEffect(() => {
+    setload(true)
+  }, [id])
+
+  useEffect(() => {
     const getData = async () => {
       try {
         const res = await axios.get(`https://api.alquran.cloud/v1/surah/${id}/ar.alafasy`)
@@ -28,9 +32,7 @@ const Surahs = () => {
     getData()
   }, [id])
 
-  useEffect(() => {
-    setload(true)
-  }, [id])
+
 
 
   return (
