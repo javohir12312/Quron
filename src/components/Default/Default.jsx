@@ -11,7 +11,7 @@ const Default = () => {
         if (!localStorage.getItem('start')) {
             setTimeout(() => {
                 setStart(false)
-                localStorage.setItem("start", start)
+                localStorage.setItem("start", "start")
             }, 3000);
         } else if (localStorage.getItem('start')) {
             setStart(false)

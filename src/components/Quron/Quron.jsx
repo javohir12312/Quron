@@ -31,13 +31,13 @@ const Quron = () => {
           <p>English</p><p>Arabian</p>
         </div>
         {data.map((item) => {
-            return (
-              <Link key={item.number} to={`/${item.number}`}>
-                <li key={item.number}>
-                  <p>{item.englishName}</p>  <span>•</span>  <p>{item.name}</p>
-                </li></Link>
-            )
-          })
+          return (
+            <Link key={item.number} to={`/${item.number}`}>
+              <li key={item.number}>
+                <p>{item.englishName}</p>  <span>•</span>  <p>{item.name}</p>
+              </li></Link>
+          )
+        })
         }
       </ul>
       <Surahs />
