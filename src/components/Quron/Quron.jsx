@@ -24,7 +24,8 @@ const Quron = () => {
     }
 
     getData()
-  }, [])
+    setload(true)
+  }, [id])
 
   // console.log(data);
 
