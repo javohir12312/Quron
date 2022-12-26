@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import ReactAudioPlayer from 'react-audio-player';
 import { useParams } from 'react-router-dom';
 import Loader from '../Loader/Loader';
-import Loading from '../Loading/Loading';
 import style from "./Surahs.module.scss"
 
 const Surahs = () => {

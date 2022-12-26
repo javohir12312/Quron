@@ -9,7 +9,6 @@ import style from './Quron.module.scss'
 const Quron = () => {
 
   const [data, setData] = useState([])
-  const [load, setload] = useState(true)
 
   useEffect(() => {
     const getData = async () => {
@@ -17,7 +16,6 @@ const Quron = () => {
         const res = await axios.get("http://api.alquran.cloud/v1/surah")
 
         setData(res.data.data)
-        setload(false)
       } catch (error) {
         console.log('xato');
       }
