@@ -35,7 +35,7 @@ const Default = () => {
                         <img src="./assets/images/kaaba.png" alt="" />
                     </div>
                     <div className={style.box}>
-                        <Link to={'/surahs'}>Qur'an</Link>
+                        <Link to={'/1'}>Qur'an</Link>
                         <Link to={'/times'}>Namoz Vaqtlari</Link>
                         <Link to={'/tasbeh'}>Tasbeh</Link>
                     </div>
