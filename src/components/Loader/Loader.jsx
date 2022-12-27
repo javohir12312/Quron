@@ -9,7 +9,7 @@ function Loader() {
             <Stack sx={{ color: 'grey.500' }} spacing={2} direction="row">
                 <CircularProgress color="success" />
             </Stack>
-            <p>Suralardan birini tanlang, tanlagan bo'lsangiz biroz kuting</p>
+            <p>Biroz kuting</p>
         </div>
     );
 }

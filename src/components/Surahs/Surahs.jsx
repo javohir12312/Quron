@@ -11,6 +11,7 @@ const Surahs = () => {
 
 
   const [ones, setOnes] = useState([])
+  const [play, setPlay] = useState(null)
   const [load, setload] = useState(true)
 
   useEffect(() => {
@@ -33,14 +34,23 @@ const Surahs = () => {
   }, [id])
 
 
+  const Play = event => {
+    console.log(event.currentTarget.id);
+  };
+
   return (
     <ul className={style.box}>
       {
         load ? <Loader /> : ones.map((item) => {
           return (
             <li key={item.number}>
-              <h2>{item.text}</h2>
+              <h2>
+                {item.text}</h2>
               <ReactAudioPlayer src={item.audio} controls />
+
+              <button id={item.number} onClick={Play}>
+                a
+              </button>
             </li>
           )
         })

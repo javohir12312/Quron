@@ -41,7 +41,7 @@ const Quron = () => {
             return (
               <Link key={item.number} to={`/${item.number}`}>
                 <li key={item.number}>
-                  <p>{item.englishName}</p>  <span>•</span>  <p>{item.name}</p>
+                  <p>{item.number}. {item.englishName}</p>  <span>•</span>  <p>{item.name}</p>
                 </li></Link>
             )
           })
