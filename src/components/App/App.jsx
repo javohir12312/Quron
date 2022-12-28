@@ -8,6 +8,7 @@ import Astafirulloh from '../Tasbehlar/Astafirulloh/Astafirulloh';
 import Times from '../Times/Times';
 
 const App = () => {
+
   return (
     <>
       <Routes>

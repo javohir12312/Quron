@@ -1,17 +1,13 @@
 .box {
-    width: 100px;
+    max-width: 100px;
     position: absolute;
     right: 0px;
     top: 0;
     z-index: 5;
-
-    @media screen and (max-width: 850px) {
-        right: -40px;
-    }
 }
 
 .btn {
-    width: 60px;
+    max-width: 60px;
     background: lightgreen;
     padding: 10px;
     border-radius: 12px;

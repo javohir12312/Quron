@@ -58,17 +58,15 @@ const Surahs = () => {
   function start(e) {
     const id = e.currentTarget.id
 
-    const mp = document.getElementById(id)
+    const mp = document.getElementById(id).play()
 
-    mp.play()
   }
 
   function Pause(e) {
     const id = e.currentTarget.id
 
-    const mp = document.getElementById(id)
+    const mp2 = document.getElementById(id).pause()
 
-    mp.pause()
   }
 
   return (
