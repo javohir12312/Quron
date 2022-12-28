@@ -1,7 +1,7 @@
 .list {
     width: 600px;
     margin: 0;
-    background: rgb(61, 160, 61);
+    background: rgba(61, 160, 61, 0.4);
     display: flex;
     flex-direction: column;
     list-style: none;
@@ -16,16 +16,26 @@
         text-decoration: none;
         color: black;
         font-weight: 700;
+        margin: 0;
     }
 
     li {
         width: 100%;
-        padding: 5px;
         display: flex;
         align-items: center;
         justify-content: space-between;
+        padding: 10px;
+        transition: 0.3s ease;
+        border-radius: 8px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        margin: 0;
 
-        p{
+        &:hover {
+            background: white;
+        }
+
+        p {
             width: 150px;
             margin: 0;
             padding: 0;
@@ -34,30 +44,99 @@
 
     &::-webkit-scrollbar {
         width: 5px;
+        background: rgba(61, 160, 61, 0.5);
     }
-    &::-webkit-scrollbar-thumb  {
+
+    &::-webkit-scrollbar-thumb {
         background-color: gainsboro;
         border-radius: 50px;
     }
 }
 
-.box{
+.box {
     display: flex;
     justify-content: space-between;
 }
 
-.box2{
+.box2 {
     width: 80%;
     margin-left: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
-    p{
+
+    p {
         margin: 0;
         padding: 0;
         font-weight: 500;
         font-size: 20px;
         font-family: 'Times New Roman', Times, serif;
+    }
+}
+
+.ham {
+    display: none;
+
+    input {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .list {
+        width: 100%;
+        position: absolute;
+        background: rgba(61, 160, 91);
+        left: -99.9%;
+        z-index: 2;
+        transition: 0.3s ease;
+        padding-top: 50px;
+        margin-top: 10px;
+
+        a {
+            text-decoration: none;
+            color: black;
+            font-weight: 400;
+            margin: 0;
+        }
+    }
+
+    .ham {
+        width: 100%;
+        padding:20px 10px;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 11;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        margin-top: 0;
+        z-index: 3;
+        background: rgba(61, 160, 91);
+
+        span:nth-child(1) {
+            display: block;
+            width: 10px;
+            height: 5px;
+            background: lightgreen;
+            border-radius: 12px;
+        }
+        span:nth-child(2) {
+            display: block;
+            width: 20px;
+            height: 5px;
+            background: lightgreen;
+            border-radius: 12px;
+        }
+        span:nth-child(3) {
+            display: block;
+            width: 30px;
+            height: 5px;
+            background: lightgreen;
+            border-radius: 12px;
+        }
+
     }
 }

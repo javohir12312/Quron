@@ -11,15 +11,21 @@ const Surahs = () => {
 
 
   const [ones, setOnes] = useState([])
-  const [play, setPlay] = useState(null)
+  const [play, setPlay] = useState([])
   const [load, setload] = useState(true)
+
+  const [state, setState] = useState("ar.alafasy")
+
+  function getName(e) {
+    setState(e.target.value)
+  }
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get(`https://api.alquran.cloud/v1/surah/${id}/ar.alafasy`)
+        const res = await axios.get(`https://api.alquran.cloud/v1/surah/${id}/${state}`)
 
-        setOnes(res.data.data.ayahs)
+        setOnes(res.data.data)
         setload(false)
       } catch (error) {
         console.log('xato');
@@ -30,32 +36,44 @@ const Surahs = () => {
   }, [id])
 
   useEffect(() => {
+    const getData2 = async () => {
+      try {
+        const res = await axios.get(`https://api.alquran.cloud/v1/surah/${id}/uz.sodik`)
+
+        setPlay(res.data.data)
+        setload(false)
+      } catch (error) {
+        console.log('xato');
+      }
+    }
+
+    getData2()
+  }, [id])
+
+  useEffect(() => {
     setload(true)
   }, [id])
 
 
-  const Play = event => {
-    console.log(event.currentTarget.id);
-  };
-
   return (
-    <ul className={style.box}>
-      {
-        load ? <Loader /> : ones.map((item) => {
-          return (
-            <li key={item.number}>
-              <h2>
-                {item.text}</h2>
-              <ReactAudioPlayer src={item.audio} controls />
+    <div className={style.bigbox}>
 
-              <button id={item.number} onClick={Play}>
-                a
-              </button>
-            </li>
-          )
-        })
-      }
-    </ul>
+      <h2 className='mx-5'>Surah-{id}</h2>
+      <ul className={style.box}>
+        {
+          load ? <Loader /> : ones.ayahs.map((item) => {
+            return (
+              <li key={item.number}>
+                <h2>
+                  {item.text}
+                </h2>
+                <ReactAudioPlayer src={item.audio} controls />
+              </li>
+            )
+          })
+        }
+      </ul>
+    </div>
   )
 }
 

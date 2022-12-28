@@ -1,4 +1,4 @@
-.box{
+.box {
     list-style: none;
     width: 100%;
     height: 100vh;
@@ -8,12 +8,90 @@
     margin: 0;
     padding: 0;
     overflow-y: scroll;
-    
-    li{
+    z-index: 0;
+
+    li {
         width: 100%;
+        z-index: -1;
     }
 }
 
-audio{
-    width: 200px;
+audio {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+
+    &::-webkit-media-controls-panel {
+        background: rgb(122, 240, 122);
+    }
+
+    &::-webkit-media-controls-play-button {
+        background: white;
+        border-radius: 15px;
+        padding: 20px;
+        background-image: url(https://cdn-icons-png.flaticon.com/512/1624/1624088.png);
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-size: 30px;
+    }
+
+    &::-webkit-media-controls-current-time-display {
+        background: rgba(255, 255, 0, 0.5);
+        font-weight: 700;
+        padding: 6px;
+        border-radius: 12px;
+    }
+
+    &::-webkit-media-controls-time-remaining-display {
+        background: rgba(255, 255, 0, 0.5);
+        font-weight: 700;
+        padding: 6px;
+        border-radius: 12px;
+    }
+
+    &::-webkit-media-controls-enclosure {
+        border-radius: 20px;
+    }
+
+    &::-webkit-media-controls-seek-back-button {
+        background: red;
+    }
+}
+
+.box {
+    list-style: none;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+}
+
+
+
+@media screen and (max-width: 850px) {
+
+.box {
+    margin-top: 50px;
+}
+
+
+    .bigbox {
+        width: 800px;
+        margin: 0 20px;
+        z-index: 1;
+
+        .box {
+            width: 100%;
+            margin-left: 20px;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            overflow: hidden;
+        }
+    }
 }
