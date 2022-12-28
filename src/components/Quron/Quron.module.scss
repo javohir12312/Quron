@@ -84,10 +84,9 @@
 
 @media screen and (max-width: 850px) {
     .list {
-        width: 100%;
         position: absolute;
         background: rgba(61, 160, 91);
-        left: -99.9%;
+        left: -200%;
         z-index: 2;
         transition: 0.3s ease;
         padding-top: 50px;

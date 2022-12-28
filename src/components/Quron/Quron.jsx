@@ -20,7 +20,7 @@ const Quron = () => {
     if(e.target.checked){
       list.style.left = 0
     }else{
-      list.style.left = "-99.9%"
+      list.style.left = "-200%"
     }
   }
 
