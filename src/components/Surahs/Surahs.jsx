@@ -57,6 +57,14 @@ const Surahs = () => {
 
   return (
     <div className={style.bigbox}>
+      <div>
+        <label className={style.ham} htmlFor="1">
+          <span></span>
+          <span></span>
+          <span></span>
+        <input type="checkbox" name="" id="1" />
+        </label>
+      </div>
 
       <h2 className='mx-5'>Surah-{id}</h2>
       <ul className={style.box}>
