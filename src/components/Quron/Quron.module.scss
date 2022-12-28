@@ -1,7 +1,7 @@
 .list {
-    width: 600px;
+    width: 800px;
     margin: 0;
-    background: rgba(61, 160, 61, 0.4);
+    background: rgba(9,199, 99,);
     display: flex;
     flex-direction: column;
     list-style: none;
@@ -36,7 +36,7 @@
         }
 
         p {
-            width: 150px;
+            width: 200px;
             margin: 0;
             padding: 0;
         }
@@ -103,7 +103,7 @@
 
     .ham {
         width: 100%;
-        padding:20px 10px;
+        padding: 20px 10px;
         display: block;
         position: absolute;
         top: 0;
@@ -123,6 +123,7 @@
             background: lightgreen;
             border-radius: 12px;
         }
+
         span:nth-child(2) {
             display: block;
             width: 20px;
@@ -130,6 +131,7 @@
             background: lightgreen;
             border-radius: 12px;
         }
+
         span:nth-child(3) {
             display: block;
             width: 30px;
@@ -139,4 +141,9 @@
         }
 
     }
+}
+
+.inp {
+    position: absolute;
+    top: -100px;
 }

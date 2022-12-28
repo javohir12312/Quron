@@ -40,7 +40,7 @@ const Surahs = () => {
       try {
         const res = await axios.get(`https://api.alquran.cloud/v1/surah/${id}/uz.sodik`)
 
-        setPlay(res.data.data)
+        setPlay(res.data.data.ayahs)
         setload(false)
       } catch (error) {
         console.log('xato');
@@ -55,27 +55,45 @@ const Surahs = () => {
   }, [id])
 
 
+  function start(e) {
+    const id = e.currentTarget.id
+
+    const mp = document.getElementById(id)
+
+    mp.play()
+  }
+
+  function Pause(e) {
+    const id = e.currentTarget.id
+
+    const mp = document.getElementById(id)
+
+    mp.pause()
+  }
+
   return (
     <div className={style.bigbox}>
-      <div>
-        <label className={style.ham} htmlFor="1">
-          <span></span>
-          <span></span>
-          <span></span>
-        <input type="checkbox" name="" id="1" />
-        </label>
-      </div>
 
       <h2 className='mx-5'>Surah-{id}</h2>
       <ul className={style.box}>
         {
-          load ? <Loader /> : ones.ayahs.map((item) => {
+          load ? <Loader /> : ones.ayahs.map((item, index) => {
             return (
               <li key={item.number}>
                 <h2>
                   {item.text}
                 </h2>
-                <ReactAudioPlayer src={item.audio} controls />
+                <p>{play[index]?.text}</p>
+                <ReactAudioPlayer id={play[index]?.number} src={item.audio} controls />
+
+                <div className='d-flex justify-content-between align-items-center w-25 gap-2 mx-auto'>
+                  <button className={style.btn} onClick={start} id={item.number}>
+                    Play
+                  </button>
+                  <button className={style.btn} onClick={Pause} id={item.number}>
+                    Pause
+                  </button>
+                </div>
               </li>
             )
           })
