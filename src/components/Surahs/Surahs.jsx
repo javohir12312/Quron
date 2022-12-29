@@ -121,7 +121,7 @@ const Surahs = () => {
             return (
               <li key={item.number}>
                 <h3>
-                  {id + ":" + item.number}
+                  {id + ":" + item.numberInSurah}
                 </h3>
                 <h2>
                   {item.text}
