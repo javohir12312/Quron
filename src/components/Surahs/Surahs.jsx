@@ -92,6 +92,8 @@ const Surahs = () => {
     bar.style.top = "-8%" ? bar.style.top = '0%' : bar.style.top = '-8%' 
   }
 
+  console.log(ones);
+
   return (
     <div className={style.bigbox}>
       <div id='bar' className={style.domla}>
@@ -125,7 +127,7 @@ const Surahs = () => {
                   {item.text}
                 </h2>
                 <p>{play[index]?.text}</p>
-                <ReactAudioPlayer id={play[index]?.number} src={item.audio} controls />
+                <ReactAudioPlayer id={item.number} src={item.audio} controls />
 
                 <div className='d-flex justify-content-between align-items-center w-25 gap-2 mx-auto'>
                   <button className={style.btn} onClick={start} id={item.number}>
