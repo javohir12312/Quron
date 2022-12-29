@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import getOptin from "../slice/select"
+import countReduser from "../slice/count"
 
 export default configureStore({
-    reducer: getOptin,
+    reducer: countReduser
 })
