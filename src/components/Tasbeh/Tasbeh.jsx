@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { decrement, increment } from '../../slice/count'
 import style from "./Tasbeh.module.scss"
 
 const Tasbeh = () => {
@@ -57,7 +55,7 @@ const Tasbeh = () => {
           </li>
         </ul>
 
-        <div className={counter == 0 ? style.content : null}>
+        <div className={counter === 0 ? style.content : null}>
           <h2 className={style.count}>
             {counter}
           </h2>

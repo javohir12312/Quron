@@ -4,6 +4,10 @@
     right: 0px;
     bottom: 0;
     z-index: 5;
+
+    @media screen and (max-width: 850px) {
+        top: 0;
+    }
 }
 
 .btn {
@@ -11,4 +15,8 @@
     background: lightgreen;
     padding: 10px;
     border-top-left-radius:12px ;
+
+    @media screen and (max-width: 850px) {
+        border-bottom-left-radius: 12px;
+    }
 }

@@ -3,20 +3,21 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export const countetSlice = createSlice({
     name: 'count',
-    initialState: { count: 0 },
+    initialState: {
+        Audio: "",
+        Domla: "ar.alafasy"
+    },
     reducers: {
-        increment: (state) => {
-            state.count += 1
+        playAudio: (state, { payload }) => {
+            state.Audio = payload
+            console.log(payload);
         },
-        decrement: (state) => {
-           if(state.count > 0){
-            state.count -= 1
-           }else{
-            state.count = 0
-           }
+        audioDomla: (state, { payload }) => {
+            state.Domla = payload
+            console.log(state.Domla);
         }
     },
 })
 
-export const { increment, decrement } = countetSlice.actions
+export const { playAudio , audioDomla} = countetSlice.actions
 export default countetSlice.reducer

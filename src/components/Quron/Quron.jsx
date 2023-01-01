@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Btn from '../Btn/Btn'
 import Loading from '../Loading/Loading'
-import Selected from '../Selected/Selected'
 import Surahs from '../Surahs/Surahs'
 import style from './Quron.module.scss'
 
