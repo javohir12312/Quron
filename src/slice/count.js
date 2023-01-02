@@ -5,17 +5,16 @@ export const countetSlice = createSlice({
     name: 'count',
     initialState: {
         Audio: "",
-        Domla: "ar.alafasy"
+        Domla: "ar.alafasy",
+        isPlay: false
     },
     reducers: {
         playAudio: (state, { payload }) => {
             state.Audio = payload
-            console.log(payload);
         },
         audioDomla: (state, { payload }) => {
             state.Domla = payload
-            console.log(state.Domla);
-        }
+        },
     },
 })
 

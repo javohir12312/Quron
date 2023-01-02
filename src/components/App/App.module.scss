@@ -7,7 +7,15 @@
 
 .audio{
     width: 100%;
-    background: red;
+    background: #f3f3f3;    
+
+    &::-webkit-media-controls-panel{
+        background: #f3f3f3;
+    }
+
+    &::-webkit-media-controls-return-to-realtime-button{
+        background: red;
+    }
 
     @media screen and (max-width: 850px) {
         margin-top: 60px;

@@ -6,6 +6,7 @@ import style from "./Surahs.module.scss"
 import auther from "../../auther/author-audio.json"
 import { useDispatch, useSelector } from 'react-redux';
 import { audioDomla, playAudio } from '../../slice/count';
+import LinearBuffer from '../LinerLoad/LinerLoad';
 
 const Surahs = () => {
 
@@ -15,10 +16,18 @@ const Surahs = () => {
   const [ones, setOnes] = useState([])
   const [play, setPlay] = useState([])
   const [load, setload] = useState(true)
+  const [lang, setLang] = useState(localStorage.getItem("language") == null ? "uz.sodik":localStorage.getItem("language"))
+
+  // const a = "uz.sodik"
+  const lang2 = localStorage.setItem("language", lang)
+  const lang3 = localStorage.getItem("language")
+
+  console.log(lang);
 
   const state = useSelector(state => state.Domla)
 
   const dispatch = useDispatch()
+
 
 
   useEffect(() => {
@@ -39,7 +48,7 @@ const Surahs = () => {
   useEffect(() => {
     const getData2 = async () => {
       try {
-        const res = await axios.get(`https://api.alquran.cloud/v1/surah/${id}/uz.sodik`)
+        const res = await axios.get(`https://api.alquran.cloud/v1/surah/${id}/${lang3}`)
 
         setPlay(res.data.data.ayahs)
         setload(false)
@@ -49,7 +58,7 @@ const Surahs = () => {
     }
 
     getData2()
-  }, [id])
+  }, [id, lang])
 
   useEffect(() => {
     setload(true)
@@ -57,32 +66,51 @@ const Surahs = () => {
 
   function Play(e) {
     dispatch(playAudio(e.currentTarget.id))
+
   }
 
   function getDomla(e) {
     dispatch(audioDomla(e.currentTarget.id))
   }
 
+  function languga(e){
+    const a = e.currentTarget.id
 
+    const b = document.querySelector(a)
+
+  
+  }
+
+  console.log(lang);
   return (
     <div className={style.bigbox}>
       <div id='bar' className={style.domla}>
-        <ul>
-          {
-            auther.map((item) => {
-              return (
-                <li key={item.value} onClick={getDomla} className={style.item} id={item.value}>
-                  <img src={item.img} alt="" width={100} />
-                  <p id={item.name} >
-                    {item.name}
-                  </p>
-                </li>
-              )
-            })
-          }
-        </ul>
+        {
+          load ? <LinearBuffer /> : <ul>
+            {
+              auther.map((item) => {
+                return (
+                  <li key={item.value} onClick={getDomla} className={style.item} id={item.value}>
+                    <img src={item.img} alt="" width={100} />
+                    <p id={item.name} >
+                      {item.name}
+                    </p>
+                  </li>
+                )
+              })
+            }
+          </ul>
+        }
+
       </div>
-      <h2 className='mx-5'>Surah-{id}</h2>
+      <div className='w-100 mt-5 d-flex align-items-center justify-content-between'>
+        <h2 className='mx-5 my-0'>Surah-{id}</h2>
+        <select onChange={(e) => setLang(e.target.value)} className={style.select}>
+          <option selected={lang3=="uz.sodik" ? true :false} id='uz.sodik' value="uz.sodik">uz</option>
+          <option selected={lang3=="ru.kuliev" ? true :false} id='ru.kuliev' value="ru.kuliev">ru</option>
+          <option selected={lang3=="en.ahmedali" ? true :false} id='en.ahmedali' value="en.ahmedali">eng</option>
+        </select>
+      </div>
       <ul className={style.box}>
         {
           load ? <Loader /> : ones.ayahs.map((item, index) => {
@@ -93,7 +121,7 @@ const Surahs = () => {
                     {id + ":" + item.numberInSurah}
                   </h3>
                   <p>
-                   Page:{item.page}
+                    Page:{item.page}
                   </p>
                 </div>
                 <h2>

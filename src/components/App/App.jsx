@@ -9,6 +9,7 @@ import Times from '../Times/Times';
 const App = () => {
 
   const state = useSelector(state => state.Audio)
+  const state2 = useSelector(state => state.isPlay)
 
   return (
     <>

@@ -119,13 +119,15 @@ audio {
     padding: 0;
     overflow-y: scroll;
     background: whitesmoke;
+    overflow-y: scroll;
 
     &::-webkit-scrollbar {
-        display: none;
+        width: 10px;
+        background: gray;
     }
 
     &::-webkit-scrollbar-thumb {
-        background-color: gray;
+        background-color: rgb(251, 251, 251);
         border-radius: 50px;
     }
 
@@ -157,7 +159,7 @@ audio {
     padding: 10px;
     border-radius: 6px;
     background: none;
-    border: 3px solid rgb(147, 179, 238);
+    border: 3px solid rgb(113, 158, 235);
     color: rgb(24, 24, 24);
     font-weight: 400;
     font-size: 17px;
@@ -174,7 +176,6 @@ audio {
 
 .domla {
     width: 100%;
-    left: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -206,6 +207,7 @@ audio {
     }
 
     ul {
+        width: auto;
         display: flex;
         list-style-type: none;
         align-items: center;
@@ -252,3 +254,14 @@ audio {
     }
 }
 
+
+.select{
+    margin-right: 10px;
+    width: 100px;
+    padding: 10px;
+    border: none;
+    background: rgb(205, 204, 204);
+    border-radius: 4px;
+    outline: none;
+    color: rgb(54, 54, 54);
+}
