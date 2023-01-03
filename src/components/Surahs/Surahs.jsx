@@ -16,7 +16,7 @@ const Surahs = () => {
   const [ones, setOnes] = useState([])
   const [play, setPlay] = useState([])
   const [load, setload] = useState(true)
-  const [lang, setLang] = useState(localStorage.getItem("language") == null ? "uz.sodik":localStorage.getItem("language"))
+  const [lang, setLang] = useState(localStorage.getItem("language") === null ? "uz.sodik":localStorage.getItem("language"))
 
   // const a = "uz.sodik"
   const lang2 = localStorage.setItem("language", lang)
