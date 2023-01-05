@@ -6,6 +6,11 @@
     transform: translateY(20%);
     font-family: 'Courier New', Courier, monospace;
 
+    @media screen and (max-width:850px) {
+        transform: none;
+        margin-top: 30px;
+    }
+
     .time{
         font-size: 30px;
         margin-top: 20px;
@@ -18,6 +23,8 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
     gap: 30px;
     li{
         width: 300px;
