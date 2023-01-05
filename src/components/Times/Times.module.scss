@@ -29,6 +29,7 @@
     gap: 30px;
     li{
         width: 300px;
+        height: 320px;
         padding: 20px;
         background: #ccc;
         border-radius: 10px;
@@ -45,6 +46,10 @@
 
         h2{
         font-weight:700;
+        }
+        
+        h5{
+            font-weight: bold;
         }
     }
    }
