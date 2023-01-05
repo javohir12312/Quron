@@ -11,6 +11,9 @@ export const countetSlice = createSlice({
     reducers: {
         playAudio: (state, { payload }) => {
             state.Audio = payload
+        },audioStop: (state, { payload }) => {
+            state.isPlay = payload
+            console.log(state.isPlay);
         },
         audioDomla: (state, { payload }) => {
             state.Domla = payload
@@ -18,5 +21,5 @@ export const countetSlice = createSlice({
     },
 })
 
-export const { playAudio , audioDomla} = countetSlice.actions
+export const { playAudio , audioDomla, audioStop} = countetSlice.actions
 export default countetSlice.reducer

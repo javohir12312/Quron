@@ -5,7 +5,7 @@ import Loader from '../Loader/Loader';
 import style from "./Surahs.module.scss"
 import auther from "../../auther/author-audio.json"
 import { useDispatch, useSelector } from 'react-redux';
-import { audioDomla, playAudio } from '../../slice/count';
+import { audioDomla, audioStop, playAudio } from '../../slice/count';
 import LinearBuffer from '../LinerLoad/LinerLoad';
 
 const Surahs = () => {
@@ -18,7 +18,6 @@ const Surahs = () => {
   const [load, setload] = useState(true)
   const [lang, setLang] = useState(localStorage.getItem("language") === null ? "uz.sodik":localStorage.getItem("language"))
 
-  // const a = "uz.sodik"
   const lang2 = localStorage.setItem("language", lang)
   const lang3 = localStorage.getItem("language")
 
@@ -66,20 +65,17 @@ const Surahs = () => {
 
   function Play(e) {
     dispatch(playAudio(e.currentTarget.id))
+    dispatch(audioStop(true))
 
   }
 
+  const state2 = useSelector(state => state.isPlay)
   function getDomla(e) {
     dispatch(audioDomla(e.currentTarget.id))
   }
 
-  function languga(e){
-    const a = e.currentTarget.id
 
-    const b = document.querySelector(a)
 
-  
-  }
 
   console.log(lang);
   return (
@@ -133,6 +129,7 @@ const Surahs = () => {
                   <button className={style.btn} onClick={Play} id={item.audio}>
                     <img src="./assets/images/quran.png" alt=""
                     />
+                    <img src="./assets/images/headphones.png" alt="" />
                   </button>
                 </div>
               </li>

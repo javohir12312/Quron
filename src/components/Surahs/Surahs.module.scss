@@ -164,6 +164,9 @@ audio {
     font-weight: 400;
     font-size: 17px;
     transition: 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 
     &:hover{
         box-shadow: 0px 0px 40px rgb(127, 179, 238);
