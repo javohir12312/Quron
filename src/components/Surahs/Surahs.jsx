@@ -125,7 +125,7 @@ const Surahs = () => {
                 </h2>
                 <p>{play[index]?.text}</p>
 
-                <div className='d-flex justify-content-between align-items-center w-25 gap-2 mx-auto'>
+                <div className='d-flex justify-content-between align-items-center w-50 gap-2 mx-auto'>
                   <button className={style.btn} onClick={Play} id={item.audio}>
                     <img src="./assets/images/quran.png" alt=""
                     />

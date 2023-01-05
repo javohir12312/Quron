@@ -167,6 +167,7 @@ audio {
     display: flex;
     align-items: center;
     justify-content: space-around;
+    margin: 0 auto;
 
     &:hover{
         box-shadow: 0px 0px 40px rgb(127, 179, 238);
@@ -174,6 +175,7 @@ audio {
 
     img{
         width: 50px;
+        margin: 0 auto;
     }
 }
 
