@@ -39,12 +39,13 @@ const Default = () => {
                         <Link to={'/times'}>Namoz Vaqtlari</Link>
                         <Link to={'/tasbeh'}>Tasbeh</Link>
                     </div>
-                </div>
-                
-            }
+                    
             <div className={style.powered}>
                 <h4>Created by Javohir • من ابتكار جواهر</h4>
             </div>
+                </div>
+                
+            }
         </div>
     )
 }

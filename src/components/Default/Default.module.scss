@@ -159,8 +159,18 @@
     font-family: 'Courier New', Courier, monospace;
     text-align: center;
 
+    @media screen and (max-width:850px) {
+        padding: 0;
+    }
+
     h4{
         margin: 0;
         font-weight: 500;
+        font-size: 16px;
+
+        @media screen and (max-width:850px) {
+            padding: 0;
+            margin: 5px;
+        }
     }
 }
