@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { Play2, playAudio } from '../../slice/count';
@@ -12,6 +12,10 @@ const App = () => {
 
   const state = useSelector(state => state.Audio)
   const state2 = useSelector(state => state.isPlay)
+
+  const [src, setSrc] = useState(true)
+
+
 
   function play() {
     const a = document.getElementById("audio")
@@ -28,6 +32,12 @@ const App = () => {
 
   useEffect(() => {
     play()
+
+    if (state == '') {
+      setSrc(false)
+    } else {
+      setSrc(true)
+    }
   }, [state2, state])
 
   const dispatch = useDispatch()
@@ -44,7 +54,7 @@ const App = () => {
         id="audio"
         src={state}
         onEnded={Ended}
-        controls
+        controls={src}
         onChange={play()}
         autoCapitalize='true'
         data-show-loop="false"
