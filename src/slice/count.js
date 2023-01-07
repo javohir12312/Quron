@@ -6,20 +6,22 @@ export const countetSlice = createSlice({
     initialState: {
         Audio: "",
         Domla: "ar.alafasy",
-        isPlay: false
+        isPlay: null
     },
     reducers: {
         playAudio: (state, { payload }) => {
             state.Audio = payload
-        },audioStop: (state, { payload }) => {
-            state.isPlay = payload
-            console.log(state.isPlay);
+            console.log(state.Audio);
         },
         audioDomla: (state, { payload }) => {
             state.Domla = payload
         },
+        Play2: (state, { payload }) => {
+            state.isPlay = payload 
+            console.log(state.isPlay);
+        }
     },
 })
 
-export const { playAudio , audioDomla, audioStop} = countetSlice.actions
+export const { playAudio, audioDomla, audioStop, Play2 } = countetSlice.actions
 export default countetSlice.reducer

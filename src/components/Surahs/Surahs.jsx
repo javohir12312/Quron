@@ -5,7 +5,7 @@ import Loader from '../Loader/Loader';
 import style from "./Surahs.module.scss"
 import auther from "../../auther/author-audio.json"
 import { useDispatch, useSelector } from 'react-redux';
-import { audioDomla, audioStop, playAudio } from '../../slice/count';
+import { audioDomla, audioStop, isPause, Play2, playAudio } from '../../slice/count';
 import LinearBuffer from '../LinerLoad/LinerLoad';
 
 const Surahs = () => {
@@ -16,7 +16,7 @@ const Surahs = () => {
   const [ones, setOnes] = useState([])
   const [play, setPlay] = useState([])
   const [load, setload] = useState(true)
-  const [lang, setLang] = useState(localStorage.getItem("language") === null ? "uz.sodik":localStorage.getItem("language"))
+  const [lang, setLang] = useState(localStorage.getItem("language") === null ? "uz.sodik" : localStorage.getItem("language"))
 
   const lang2 = localStorage.setItem("language", lang)
   const lang3 = localStorage.getItem("language")
@@ -65,9 +65,9 @@ const Surahs = () => {
 
   function Play(e) {
     dispatch(playAudio(e.currentTarget.id))
-    dispatch(audioStop(true))
-
+    dispatch(Play2(state2 == null ? true : state2 == false ? true :false))
   }
+
 
   const state2 = useSelector(state => state.isPlay)
   function getDomla(e) {
@@ -102,9 +102,9 @@ const Surahs = () => {
       <div className='w-100 mt-5 d-flex align-items-center justify-content-between'>
         <h2 className='mx-5 my-0'>Surah-{id}</h2>
         <select onChange={(e) => setLang(e.target.value)} className={style.select}>
-          <option selected={lang3=="uz.sodik" ? true :false} id='uz.sodik' value="uz.sodik">uz</option>
-          <option selected={lang3=="ru.kuliev" ? true :false} id='ru.kuliev' value="ru.kuliev">ru</option>
-          <option selected={lang3=="en.ahmedali" ? true :false} id='en.ahmedali' value="en.ahmedali">eng</option>
+          <option selected={lang3 == "uz.sodik" ? true : false} id='uz.sodik' value="uz.sodik">uz</option>
+          <option selected={lang3 == "ru.kuliev" ? true : false} id='ru.kuliev' value="ru.kuliev">ru</option>
+          <option selected={lang3 == "en.ahmedali" ? true : false} id='en.ahmedali' value="en.ahmedali">eng</option>
         </select>
       </div>
       <ul className={style.box}>
