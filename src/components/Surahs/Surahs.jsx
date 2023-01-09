@@ -21,7 +21,6 @@ const Surahs = () => {
   const lang2 = localStorage.setItem("language", lang)
   const lang3 = localStorage.getItem("language")
 
-  console.log(lang);
 
   const state = useSelector(state => state.Domla)
 
@@ -63,9 +62,24 @@ const Surahs = () => {
     setload(true)
   }, [id])
 
+  function Ended() {
+    dispatch(playAudio(''))
+    dispatch(Play2(null))
+  }
+
+  const link = useSelector(state => state.Audio)
+
   function Play(e) {
-    dispatch(playAudio(e.currentTarget.id))
-    dispatch(Play2(state2 == null ? true : state2 == false ? true :false))
+    if (link == e.currentTarget.id) {
+      Ended()
+      dispatch(playAudio(e.currentTarget.id))
+      dispatch(Play2(state2 == null ? true : state2 == false ? true : false))
+    } else {
+      dispatch(playAudio(e.currentTarget.id))
+      dispatch(Play2(state2 == null ? true : state2 == false ? true : false))
+    }
+
+
   }
 
 
@@ -74,10 +88,6 @@ const Surahs = () => {
     dispatch(audioDomla(e.currentTarget.id))
   }
 
-
-
-
-  console.log(lang);
   return (
     <div className={style.bigbox}>
       <div id='bar' className={style.domla}>

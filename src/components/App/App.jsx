@@ -16,15 +16,16 @@ const App = () => {
   const [src, setSrc] = useState(true)
 
 
+  const link = useSelector(state => state.Audio)
 
   function play() {
     const a = document.getElementById("audio")
 
-
     if (state2 == null) {
       console.log('a');
-    } else if (state2) {
+    } else if ( state2 == true|| link !== state ) {
       a.play()
+      dispatch(playAudio(state))
     } else if (state2 == false) {
       a.pause()
     }
@@ -37,14 +38,15 @@ const App = () => {
       setSrc(false)
     } else {
       setSrc(true)
+      dispatch(Play2(true))
     }
-  }, [state2, state])
+  }, [state])
 
   const dispatch = useDispatch()
 
   function Ended() {
     dispatch(playAudio(''))
-    dispatch(Play2(false))
+    dispatch(Play2(null))
   }
 
   return (
@@ -56,11 +58,7 @@ const App = () => {
         onEnded={Ended}
         controls={src}
         onChange={play()}
-        autoCapitalize='true'
-        data-show-loop="false"
-        data-show-stop="false"
-        data-show-volume="false"
-        data-show-info="false">
+        autoPlay>
       </audio>
       {/* <ReactAudioPlayer className={style.audio} src={state} controls autoPlay /> */}
       <Routes>
