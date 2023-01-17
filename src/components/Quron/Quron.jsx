@@ -16,9 +16,9 @@ const Quron = () => {
 
 
   function Check(e) {
-    if(e.target.checked){
+    if (e.target.checked) {
       list.style.left = 0
-    }else{
+    } else {
       list.style.left = "-200%"
     }
   }
@@ -55,6 +55,10 @@ const Quron = () => {
         </div>
         <ul className={`list + ${style.list}`}>
 
+          <form>
+            <input className={style.inp} type="text" name="" id="" placeholder='Search...'/>
+          </form>
+
           <div className={style.box2}>
             <p>English</p><p>Arabian</p>
           </div>
@@ -75,4 +79,4 @@ const Quron = () => {
   )
 }
 
-export default Quron
+export default Quron;

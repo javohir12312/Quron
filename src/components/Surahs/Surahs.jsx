@@ -33,7 +33,7 @@ const Surahs = () => {
       try {
         const res = await axios.get(`https://api.alquran.cloud/v1/surah/${id}/${state}`)
 
-        setOnes(res.data.data)
+        setOnes(res.data.data.ayahs)
         setload(false)
       } catch (error) {
         console.log('xato');
@@ -119,7 +119,7 @@ const Surahs = () => {
       </div>
       <ul className={style.box}>
         {
-          load ? <Loader /> : ones.ayahs.map((item, index) => {
+          load ? <Loader /> : ones.map((item, index) => {
             return (
               <li key={item.number}>
                 <div className={style.page}>

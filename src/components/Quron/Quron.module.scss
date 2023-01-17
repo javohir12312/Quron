@@ -147,6 +147,19 @@
 }
 
 .inp {
-    position: absolute;
-    top: -100px;
+    width: 520px;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 5px 20px;
+    border-radius: 12px;    
+    border: 2px solid gray;
+    outline: none;
+    transition: 0.3s;
+
+    &:focus{
+        box-shadow: 0 0 10px 2px lightblue;
+    }
+    @media screen and (max-width:850px) {
+        width: 90%;
+    }
 }

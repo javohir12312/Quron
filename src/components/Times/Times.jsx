@@ -4,11 +4,10 @@ import React, { useEffect, useState } from 'react'
 import style from "./Times.module.scss"
 import Clock from 'react-live-clock';
 import Loader from "../Loader/Loader"
-const Times = () => {
+const Times = () => { 
 
   const [data, setData] = useState([])
   const [load, setLoad] = useState(true)
-
 
   const now = new Date().toLocaleTimeString();
   let [time, setTime] = React.useState(now);
@@ -16,12 +15,11 @@ const Times = () => {
 
   function updateTime() {
     const newTime = new Date().toLocaleTimeString();
-    setTime(newTime);
+    setTime(newTime); 
     count++;
   }
 
   setInterval(updateTime, 1000);
-
 
   useEffect(() => {
     const getData = async () => {

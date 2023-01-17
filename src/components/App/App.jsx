@@ -22,7 +22,6 @@ const App = () => {
     const a = document.getElementById("audio")
 
     if (state2 == null) {
-      console.log('a');
     } else if ( state2 == true|| link !== state ) {
       a.play()
       dispatch(playAudio(state))
