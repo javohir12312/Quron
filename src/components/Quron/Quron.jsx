@@ -10,6 +10,7 @@ const Quron = () => {
 
   const [data, setData] = useState([])
   const [load, setload] = useState(true)
+  const [search, setSearch] = useState('')
 
 
   const list = document.querySelector('.list')
@@ -56,14 +57,16 @@ const Quron = () => {
         <ul className={`list + ${style.list}`}>
 
           <form>
-            <input className={style.inp} type="text" name="" id="" placeholder='Search...'/>
+            <input onChange={(e) => setSearch(e.target.value)} className={style.inp} type="text" name="" id="" placeholder='Search...'/>
           </form>
 
           <div className={style.box2}>
             <p>English</p><p>Arabian</p>
           </div>
           {
-            load ? <Loading /> : data.map((item) => {
+            load ? <Loading /> : data.filter((item => {
+              return search.toLocaleLowerCase() === '' ?  item : item.englishName.toLocaleLowerCase().includes(search)
+            })).map((item) => {
               return (
                 <Link onClick={Check} id='1' htmlFor="1" key={item.number} to={`/${item.number}`}>
                   <li key={item.number}>
@@ -79,4 +82,4 @@ const Quron = () => {
   )
 }
 
-export default Quron;
+export default Quron
