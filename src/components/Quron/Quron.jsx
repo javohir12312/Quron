@@ -56,7 +56,7 @@ const Quron = () => {
         </div>
         <ul className={`list + ${style.list}`}>
 
-          <form>
+          <form onSubmit={(e) => e.preventDefault()}>
             <input onChange={(e) => setSearch(e.target.value)} className={style.inp} type="text" name="" id="" placeholder='Search...'/>
           </form>
 
