@@ -41,7 +41,7 @@ const Quron = () => {
   }, [])
 
 
-  var test = document.querySelector('#enter');
+  var test = document.body.querySelector('#enter');
   console.log(test);
   test.addEventListener('keyup', function(e) {
     setSearch(e.target.value)
@@ -63,7 +63,7 @@ const Quron = () => {
         <ul className={`list + ${style.list}`}>
 
           <form onSubmit={(e) => e.preventDefault()}>
-            <input className={style.inp} type="text" name="" id="enter" placeholder='Search...'/>
+            <input className={style.inp + "" + "inputS"} type="text" name="" id="enter" placeholder='Search...'/>
           </form>
 
           <div className={style.box2}>
