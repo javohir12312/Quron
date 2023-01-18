@@ -41,11 +41,13 @@ const Quron = () => {
   }, [])
 
 
-  var test = document.body.querySelector('#enter');
-  console.log(test);
-  test.addEventListener('keyup', function(e) {
-    setSearch(e.target.value)
-  })
+  setTimeout(() => {
+    const test = document.body.querySelector('#enter');
+    console.log(test);
+    test.addEventListener('keyup', function (e) {
+      setSearch(e.target.value)
+    })
+  }, 1000);
 
   return (
     <>
@@ -63,7 +65,7 @@ const Quron = () => {
         <ul className={`list + ${style.list}`}>
 
           <form onSubmit={(e) => e.preventDefault()}>
-            <input className={style.inp + "" + "inputS"} type="text" name="" id="enter" placeholder='Search...'/>
+            <input className={style.inp} type="text" name="" id="enter" placeholder='Search...' />
           </form>
 
           <div className={style.box2}>
@@ -71,7 +73,7 @@ const Quron = () => {
           </div>
           {
             load ? <Loading /> : data.filter((item => {
-              return search.toLocaleLowerCase() === '' ?  item : item.englishName.toLocaleLowerCase().includes(search)
+              return search.toLocaleLowerCase() === '' ? item : item.englishName.toLocaleLowerCase().includes(search)
             })).map((item) => {
               return (
                 <Link onClick={Check} id='1' htmlFor="1" key={item.number} to={`/${item.number}`}>
