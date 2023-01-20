@@ -4,6 +4,7 @@ import style from "./Tasbeh.module.scss"
 const Tasbeh = () => {
 
   const [counter, setCounter] = useState(0);
+  const [change, setChange] = useState(false);
   const [count2, setCount] = useState(1);
 
   const increment = () => {
@@ -28,6 +29,18 @@ const Tasbeh = () => {
     setCount(e.target.value)
   }
 
+  const inpt = document.querySelector("#inp")
+
+  function Change() {
+    console.log(inpt.value = counter);
+    setChange(change == false ? true : false)
+    console.log(change);
+  }
+
+  function Change2(){
+    setCounter(count => Number(inpt.value))
+    setChange(false)
+  }
 
   return (
     <div className={style.box}>
@@ -45,7 +58,9 @@ const Tasbeh = () => {
           </li>
 
           <li>
-            Edit
+            <button onClick={Change}>
+              Edit
+            </button>
           </li>
 
           <li>
@@ -56,17 +71,23 @@ const Tasbeh = () => {
         </ul>
 
         <div className={counter === 0 ? style.content : null}>
-          <h2 className={style.count}>
+          <form onSubmit={(e) => e.preventDefault()} className={change ? null : style.dnone}>
+            <input className={change ? null : style.dnone} type="text" name="" id="inp" />
+            <span onClick={Change2} className={style.btn}>
+              send
+            </span>
+          </form>
+          <h2 className={change == false ? style.count : style.dnone}>
             {counter}
           </h2>
         </div>
 
         <div>
           <button onClick={() => increment()}>
-            <img src="./assets/images/sidebar.png" alt="" width={50}/>
+            <img src="./assets/images/sidebar.png" alt="" width={50} />
           </button>
           <button onClick={() => deccrement()}>
-            <img src="./assets/images/sidebar.png" alt="" width={30}/>
+            <img src="./assets/images/sidebar.png" alt="" width={30} />
           </button>
         </div>
       </div>

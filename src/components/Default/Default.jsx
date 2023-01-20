@@ -41,7 +41,7 @@ const Default = () => {
                     </div>
                     
             <div className={style.powered}>
-                <h4>Created by Javohir • من ابتكار جواهر</h4>
+                <h4>Created by <a href="https://t.me/JavohirAbduxalilov_Front">Javohir</a> • من صنع بيرل</h4>
             </div>
                 </div>
                 

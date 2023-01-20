@@ -8,6 +8,7 @@ const Times = () => {
 
   const [data, setData] = useState([])
   const [load, setLoad] = useState(true)
+  const [change, setChange] = useState("Toshkent")
 
   const now = new Date().toLocaleTimeString();
   let [time, setTime] = React.useState(now);
@@ -24,7 +25,7 @@ const Times = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const res = await axios.get("https://islomapi.uz/api/present/day?region=Toshkent")
+        const res = await axios.get(`https://islomapi.uz/api/present/day?region=${change}`)
         setData(res.data.times)
         setLoad(false)
       } catch (error) {
@@ -33,40 +34,56 @@ const Times = () => {
     }
 
     getData()
-  }, [])
-  
+  }, [change])
+
+
+  function Change(e){
+    setChange(e.target.value)
+  }
 
   setInterval(() => {
-    
+
   }, 1000);
 
   const date2 = new Date();
   const showTime = date2.getHours()
     + ':' + date2.getMinutes()
     + ":" + date2.getSeconds();
-  console.log(showTime)
 
   const [timeStyle, setTimeStyle] = useState(null)
 
   useEffect(() => {
     if (showTime > "6:10" && showTime < "7:00") {
       setTimeStyle("bomdod")
-    } else if(showTime > "13:00" && showTime < "15:00"){
+    } else if (showTime > "13:00" && showTime < "15:00") {
       setTimeStyle("peshin")
-    }else if(showTime > "15:40" && showTime < "16:20"){
+    } else if (showTime > "15:40" && showTime < "16:20") {
       setTimeStyle("asr")
-    }else if(showTime > "17:20" && showTime < "18:00"){
+    } else if (showTime > "17:20" && showTime < "18:00") {
       setTimeStyle("shom")
-    }else if(showTime > "18:40" && showTime < "4:00"){
+    } else if (showTime > "18:40" && showTime < "4:00") {
       setTimeStyle("xufton")
     }
-  },[showTime])
+  }, [showTime])
 
 
   return (
     <>
       {load ? <Loader /> : <div className={style.box}>
-        <h1>Tashkent</h1>
+        <select className={style.change} onChange={Change}>
+          <option value="Toshkent">Toshkent</option>
+          <option value="Jizzax">Jizzax</option>
+          <option value="Andijon">Andijon</option>
+          <option value="Samarqand">Samarqand</option>
+          <option value="Namangan">Namangan</option>
+          <option value="Farg'ona">Farg'ona</option>
+          <option value="Guliston">Guliston</option>
+          <option value="Qarshi">Qarshi</option>
+          <option value="Navoiy">Navoiy</option>
+          <option value="Buxoro">Buxoro</option>
+          <option value="Nukus">Nukus</option>
+          <option value="Xiva">Xiva</option>  
+        </select>
         <Clock className={style.time} format={'HH:mm:ss'} ticking={true} timezone={'Uz/Pacific'} />
         <ul>
           <li className={timeStyle == "bomdod" ? style.bomdod : style.timeLi}>
